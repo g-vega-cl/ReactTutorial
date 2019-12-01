@@ -8,3 +8,4 @@ Note:
 4- npm start to open server <br>
 
 note: we downloaded redirects_ from https://sung.codes/blog/2018/12/18/page-not-found-on-netlify-with-react-router/ <br>
+
