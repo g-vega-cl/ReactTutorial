@@ -57,7 +57,7 @@ export default class SingleRoom extends React.Component {
 					<article className = "info">
 						<h3>info</h3>
 						<h6> price: ${price}</h6>			
-						<h6> size: ${size} Square feet</h6>
+						<h6> size: {size} Square feet</h6>
 						<h6>
 							max capacity: {" "}
 								{capacity > 1 ? `${capacity} people`:
@@ -75,9 +75,9 @@ export default class SingleRoom extends React.Component {
 			<section className="room-extras">
 				<h6>extras</h6>
 				<ul className="extras">
-				{extras.map((item,index)=>{
-					return <li key={index}>-{item}</li>
-				})}
+					{extras.map((item,index)=>{
+						return <li key={index}>-{item}</li>
+					})}
 				</ul>
 			</section>
 			</>
