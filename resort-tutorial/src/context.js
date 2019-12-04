@@ -70,13 +70,42 @@ export default class RoomProvider extends React.Component {
 	filterRooms = () => {
 		let{
 			rooms, type, capacity, price,minSize,maxSize,breakfast,pets
-		} = this.state
-	};
+		} = this.state ;
 
-	let tempRooms = [...rooms];
-	if(type !== 'all' ){
-		tempItems = tempRooms.filter(room => room.type === type)
+		let tempRooms = [...rooms];
+		capacity = parseInt(capacity);
+		price = parseInt(price);
+
+
+		//FILTERS
+		if(type !== 'all' ){
+			tempRooms = tempRooms.filter(room => room.type === type)
+		}
+
+		if(capacity !==1){
+			tempRooms = tempRooms.filter(room => room.capacity >= capacity)
+		}
+
+		tempRooms = tempRooms.filter(room => room.price <= price);
+		tempRooms = tempRooms.filter(room => room.size >= minSize && room.size <= maxSize);
+
+		if(breakfast){
+			tempRooms = tempRooms.filter(room => room.breakfast === true);
+		}
+		if(pets){
+			tempRooms = tempRooms.filter(room => room.pets === true);
+		}		
+
+		//End FILTERS
+
+		this.setState({
+			sortedRooms:tempRooms
+		})
 	}
+
+
+
+
 
 	render() {
 		return (
